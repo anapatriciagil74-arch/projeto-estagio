@@ -4,7 +4,7 @@ Este repositório contém o trabalho de estágio focado em análise, processamen
 
 ## 📋 Descrição
 
-Este projeto é desenvolvido como parte do curso de Licenciatura em Engenharia Informática. O objetivo principal é trabalhar com diferentes conjuntos de dados públicos, aplicar técnicas de limpeza de dados, análise exploratória e preparação de dados para modelos de machine learning.
+Este projeto é desenvolvido como parte do curso de Licenciatura em Inteligência Artificil e Ciências de Dados. O objetivo principal é trabalhar com diferentes conjuntos de dados públicos, aplicar técnicas de limpeza de dados, análise exploratória e preparação de dados para modelos de machine learning.
 
 ## 📁 Estrutura do Projeto
 
