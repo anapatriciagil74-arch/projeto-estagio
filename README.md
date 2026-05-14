@@ -1,4 +1,4 @@
-# Projeto de Estágio - Análise e Limpeza de Dados
+# Projeto de Estágio - Exploração e Teste de Técnicas de AutoML
 
 Este repositório contém o trabalho de estágio focado em análise, processamento e limpeza de dados utilizando Python e Jupyter Notebooks.
 
