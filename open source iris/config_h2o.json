@@ -1,0 +1,5 @@
+{
+    "max_runtime_secs": 60,
+    "seed": 1234,
+    "include_algos": ["GLM", "GBM", "DRF"]
+}

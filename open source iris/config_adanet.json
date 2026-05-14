@@ -1,0 +1,11 @@
+{
+    "linear": {
+        "usar": true
+    },
+    "dnn": {
+        "usar": true,
+        "hidden_units": [16, 8]
+    },
+    "max_iteration_steps": 50,
+    "train_steps": 200
+}
