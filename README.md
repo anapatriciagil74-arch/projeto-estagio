@@ -150,11 +150,6 @@ pip install --upgrade pip
 pip install jupyter pandas numpy scikit-learn matplotlib seaborn azure-sdk plotly
 ```
 
-**Ou usando requirements.txt (se disponível):**
-```bash
-pip install -r requirements.txt
-```
-
 ### Passo 4: Iniciar Jupyter Notebook
 
 ```bash
@@ -334,7 +329,7 @@ git clone https://github.com/anapatriciagil74-arch/projeto-estagio.git && cd pro
 python -m venv venv && source venv/bin/activate
 
 # 3. Dependências
-pip install -r requirements.txt
+pip install jupyter pandas numpy scikit-learn matplotlib seaborn azure-sdk plotly
 
 # 4. Jupyter
 jupyter notebook
