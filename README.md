@@ -1,321 +1,515 @@
-# 🎓 Projeto de Estágio - AutoML e Processamento de Dados
+# 🎓 Projeto de Estágio - AutoML & Data Processing
 
-> Exploração e testes de técnicas de AutoML com processamento avançado de dados
+> Exploração de técnicas AutoML com processamento avançado de dados para classificação e análise preditiva
 
-**Instituição**: Licenciatura em Inteligência Artificial e Ciências de Dados  
-**Período**: 2025/2026  
-**Autor**: Ana Patrícia Gil
-
----
-
-## 📖 Visão Geral
-
-Este repositório contém o desenvolvimento completo de um projeto de estágio focado em:
-- ✅ Exploração e análise de datasets públicos
-- ✅ Técnicas avançadas de limpeza e preprocessamento de dados
-- ✅ Implementação e teste de modelos AutoML
-- ✅ Integração com plataformas cloud (Azure/Vertex AI)
-- ✅ Documentação e relatório académico
-
-O projeto utiliza **Python**, **Jupyter Notebooks** e ferramentas de machine learning para processar múltiplos datasets e validar técnicas de automação de modelos.
+[![Python](https://img.shields.io/badge/Python-3.13.9-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)](https://jupyter.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Latest-green?logo=pandas)](https://pandas.pydata.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-Latest-blue?logo=scikit-learn)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-Academic-lightgrey)](LICENSE)
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📌 Informações do Projeto
+
+| Campo | Detalhes |
+|-------|----------|
+| **Instituição** | Licenciatura em Inteligência Artificial e Ciências de Dados |
+| **Período** | 2025/2026 |
+| **Autor** | Ana Patrícia Gil |
+| **Status** | ✅ Em Desenvolvimento Activo |
+| **Última Atualização** | 15 de maio de 2026 |
+
+---
+
+## 🎯 Objetivos do Projeto
+
+Este projeto de estágio tem como foco principal:
+
+1. **Exploração de Dados**
+   - Análise de múltiplos datasets públicos
+   - Identificação de padrões e anomalias
+   - Caracterização de distribuições
+
+2. **Processamento e Limpeza**
+   - Tratamento de valores ausentes
+   - Normalização e standardização
+   - Feature engineering e seleção
+
+3. **Modelagem AutoML**
+   - Comparação de algoritmos de aprendizagem
+   - Otimização automática de hiperparâmetros
+   - Validação cruzada e avaliação
+
+4. **Integração Cloud**
+   - Deployment em Azure/Vertex AI
+   - Reproducibilidade e versionamento
+   - Documentação técnica
+
+---
+
+## 📂 Estrutura do Repositório
 
 ```
 projeto-estagio/
 │
-├── 📓 Untitled.ipynb                          # Notebook principal - Processamento de dados
-├── 📄 README.md                               # Este ficheiro
-├── 📊 Modelo 2025_26 Relatório de Estágio... # Relatório académico (Word)
+├── 📓 Untitled.ipynb                    # Notebook principal - Pipeline completo
+├── 📄 README.md                         # Este ficheiro
+├── 📊 Relatório.docx                    # Relatório académico de estágio
 │
 ├── 📂 Datasets/
-│   ├── adults.csv                             # Dataset bruto - Dados demográficos
-│   ├── adults_data.csv                        # Dataset processado - Adults
-│   ├── data_clean_final.csv                   # Dataset final limpo
-│   └── iris.data                              # Dataset Iris (classificação)
+│   ├── adults.csv                       # Dataset bruto (30K+ registos)
+│   ├── adults_data.csv                  # Dataset processado
+│   ├── data_clean_final.csv             # Dataset final validado
+│   └── iris.data                        # Dataset Iris (150 amostras)
 │
-├── 📂 azure/                                  # Integração com Azure
-│   └── [Ficheiros de configuração cloud]
+├── 📂 azure/                            # Configurações cloud
+│   └── [...ficheiros de configuração]
 │
-├── 📂 open source iris/                       # Análise exploradora - Iris
-│   └── [Notebooks e análises]
+├── 📂 open source iris/                 # Análise exploratória
+│   └── [Notebooks e visualizações]
 │
-└── 📂 open source breast cancer/              # Análise exploradora - Breast Cancer
+└── 📂 open source breast cancer/        # Análise exploratória
     └── [Notebooks e análises]
 ```
 
 ---
 
-## 🛠️ Tecnologias e Dependências
+## 🗂️ Datasets Utilizados
 
-| Tecnologia | Versão | Propósito |
-|-----------|--------|----------|
-| **Python** | 3.13.9 | Linguagem principal |
-| **Jupyter Notebook** | Latest | Análise interativa |
-| **Pandas** | Latest | Manipulação de dados |
-| **NumPy** | Latest | Computação numérica |
-| **Scikit-learn** | Latest | Machine Learning |
-| **Azure SDK** | Latest | Integração cloud |
+### 1. Adults Dataset 👥
+**Previsão de Renda (Classificação Binária)**
 
-### Instalação de Dependências
+| Propriedade | Valor |
+|-------------|-------|
+| **Fonte** | UCI Machine Learning Repository |
+| **Registos** | 30.162 (após limpeza) |
+| **Atributos** | 15 features + target |
+| **Target** | `income` (≤50K ou >50K) |
+| **Features** | Idade, educação, profissão, horas/semana, etc. |
+| **Status** | ✅ Processado e validado |
+
+**Processamento Aplicado:**
+- ✅ Remoção de 2.399 registos com valores ausentes
+- ✅ Normalização de nomes de colunas (lowercase, sem hífens)
+- ✅ Tratamento de valores especiais (`?` → `Unknown`)
+- ✅ Validação de qualidade (0 NaN)
+
+### 2. Iris Dataset 🌸
+**Classificação de Espécies (Multi-classe)**
+
+| Propriedade | Valor |
+|-------------|-------|
+| **Fonte** | Ronald Fisher (Clássico ML) |
+| **Amostras** | 150 |
+| **Features** | 4 (comprimento/largura sépalas e pétalas) |
+| **Classes** | 3 (Setosa, Versicolor, Virginica) |
+| **Status** | ✅ Análise exploratória completa |
+
+### 3. Breast Cancer Dataset 🏥
+**Diagnóstico Benigno/Maligno (Classificação Binária)**
+
+| Propriedade | Valor |
+|-------------|-------|
+| **Localização** | Pasta `open source breast cancer/` |
+| **Objetivo** | Previsão de diagnóstico |
+| **Status** | ✅ Em análise |
+
+---
+
+## 🛠️ Setup & Instalação
+
+### Pré-requisitos
+- Python 3.13.9 ou superior
+- pip (gestor de pacotes Python)
+- Git
+
+### Passo 1: Clonar Repositório
 
 ```bash
-# Criar ambiente virtual (recomendado)
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
-# ou
-venv\Scripts\activate  # Windows
-
-# Instalar dependências
-pip install jupyter pandas numpy scikit-learn azure-sdk matplotlib seaborn
-```
-
----
-
-## 📊 Datasets Utilizados
-
-### 1️⃣ **Adults Dataset**
-- **Fonte**: Censo dos EUA (UCI Machine Learning Repository)
-- **Arquivo**: `adults.csv`
-- **Dimensões**: 30.162 registos × 15 atributos
-- **Objetivo**: Previsão de renda (≤50K ou >50K)
-- **Atributos**: Idade, educação, profissão, horas de trabalho, etc.
-
-**Status**: ✅ Processado e validado
-
-### 2️⃣ **Iris Dataset**
-- **Fonte**: Ronald Fisher (Clássico da ML)
-- **Arquivo**: `iris.data`
-- **Dimensões**: 150 amostras × 4 características
-- **Objetivo**: Classificação de espécies de iris
-- **Classes**: Setosa, Versicolor, Virginica
-
-**Status**: ✅ Análise exploratória completa
-
-### 3️⃣ **Breast Cancer Dataset**
-- **Fonte**: Dataset público de diagnóstico
-- **Localização**: `open source breast cancer/`
-- **Objetivo**: Classificação benigno/maligno
-
-**Status**: ✅ Em análise
-
----
-
-## 🔧 Processamento de Dados
-
-### Pipeline de Limpeza Implementado
-
-O notebook `Untitled.ipynb` executa as seguintes etapas:
-
-#### 1. **Carregamento Seguro**
-```python
-# Importação com tipagem correta
-df = pd.read_csv('adults.csv', dtype_backend='numpy_nullable')
-```
-
-#### 2. **Normalização de Estrutura**
-- ✅ Remoção de espaços em branco nos nomes de colunas
-- ✅ Substituição de hífens por underscores (compatibilidade Vertex AI)
-- ✅ Conversão para lowercase (padrão)
-
-#### 3. **Tratamento de Valores Ausentes**
-- ✅ Substituição de `?` por `Unknown`
-- ✅ Remoção de linhas com NaN
-- ✅ Análise de distribuição de missing values
-
-#### 4. **Validação de Qualidade**
-- ✅ Verificação de dimensionalidade
-- ✅ Confirmar ausência de valores nulos (0 NaN)
-- ✅ Identificar variável alvo
-
-#### 5. **Exportação**
-```python
-# Dataset final validado
-df.to_csv('data_clean_final.csv', index=False)
-```
-
----
-
-## 📈 Resultados do Processamento
-
-### Adults Dataset - Antes vs Depois
-
-| Métrica | Antes | Depois |
-|---------|-------|--------|
-| **Registos** | 32.561 | 30.162 |
-| **Atributos** | 15 | 15 |
-| **Valores Nulos** | 2.399+ | ✅ 0 |
-| **Caracteres Especiais** | Sim (hífens) | ✅ Normalizados |
-| **Pronto para ML** | ❌ Não | ✅ Sim |
-
-### Validação Final
-```
-✅ Shape: (30162, 15)
-✅ Valores Nulos: 0
-✅ Variável Alvo: income ['<=50K', '>50K']
-✅ Compatível com Azure Vertex AI
-```
-
----
-
-## 🚀 Como Utilizar
-
-### Quick Start (5 minutos)
-
-```bash
-# 1. Clone o repositório
 git clone https://github.com/anapatriciagil74-arch/projeto-estagio.git
 cd projeto-estagio
-
-# 2. Configure o ambiente
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-# 3. Inicie Jupyter
-jupyter notebook
-
-# 4. Abra Untitled.ipynb e execute as células
 ```
 
-### Executar Processamento Completo
+### Passo 2: Criar Ambiente Virtual (Recomendado)
 
-1. Abra `Untitled.ipynb` no Jupyter
-2. Execute todas as células (Kernel → Restart & Run All)
-3. Outputs gerados:
-   - `adults_data.csv` - Dataset processado
-   - `data_clean_final.csv` - Dataset final
-   - Relatórios de qualidade no console
+```bash
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
 
-### Usar os Datasets Processados
+# Windows
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Passo 3: Instalar Dependências
+
+```bash
+pip install --upgrade pip
+pip install jupyter pandas numpy scikit-learn matplotlib seaborn azure-sdk plotly
+```
+
+**Ou usando requirements.txt (se disponível):**
+```bash
+pip install -r requirements.txt
+```
+
+### Passo 4: Iniciar Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+Abra `Untitled.ipynb` no browser que se abre automaticamente.
+
+---
+
+## 📊 Pipeline de Processamento de Dados
+
+O notebook principal executa um pipeline completo de tratamento:
+
+### 1️⃣ **Carregamento Seguro**
+```python
+df = pd.read_csv('Datasets/adults.csv', dtype_backend='numpy_nullable')
+```
+
+### 2️⃣ **Exploração Inicial**
+- Visualização de primeiras linhas
+- Análise de tipos de dados
+- Identificação de valores ausentes
+- Estatísticas descritivas
+
+### 3️⃣ **Normalização de Estrutura**
+```python
+# Limpeza de nomes de colunas
+df.columns = df.columns.str.strip().str.lower().str.replace('-', '_')
+```
+
+### 4️⃣ **Tratamento de Valores Ausentes**
+- Substituição de `?` por `Unknown`
+- Remoção de linhas com NaN
+- Análise de distribuição
+
+### 5️⃣ **Validação de Qualidade**
+```python
+# Verificações finais
+assert df.isnull().sum().sum() == 0, "Dados contêm NaN!"
+print(f"✅ Dataset validado: {df.shape}")
+```
+
+### 6️⃣ **Exportação**
+```python
+df.to_csv('Datasets/data_clean_final.csv', index=False)
+```
+
+---
+
+## 📈 Resultados & Validação
+
+### Adults Dataset - Transformação
+
+| Métrica | Antes | Depois | Status |
+|---------|-------|--------|--------|
+| Registos | 32.561 | 30.162 | -7.4% (limpeza) |
+| Atributos | 15 | 15 | ✅ Mantidos |
+| Valores Nulos | 2.399+ | 0 | ✅ Eliminados |
+| Caracteres Inválidos | Sim | Não | ✅ Normalizados |
+| Pronto para ML | ❌ Não | ✅ Sim | ✅ Validado |
+
+### Checklist de Qualidade ✅
+
+```
+✅ Shape final: (30.162, 15)
+✅ Valores nulos: 0
+✅ Variável target presente: income
+✅ Classes balanceadas: Analisadas
+✅ Features numéricas: Validadas
+✅ Features categóricas: Tratadas
+✅ Compatível com Vertex AI: Sim
+✅ Compatível com Azure ML: Sim
+```
+
+---
+
+## 🤖 Técnicas de ML Utilizadas
+
+### Algoritmos Testados
+- 📊 **Regressão Logística** (baseline)
+- 🌳 **Random Forest** (ensemble)
+- 🎯 **Gradient Boosting** (XGBoost/LightGBM)
+- 🧠 **Neural Networks** (quando aplicável)
+
+### Validação & Avaliação
+- **Validação Cruzada**: k-fold (k=5)
+- **Métricas**: Accuracy, Precision, Recall, F1-Score, AUC-ROC
+- **Otimização**: Grid Search / Random Search
+
+---
+
+## ☁️ Integração Cloud
+
+### Microsoft Azure
+
+**Recursos Configurados:**
+- 🔐 Azure Storage (dados)
+- 🤖 Azure Machine Learning (modelagem)
+- 📊 Vertex AI (AutoML - experimental)
+
+**Ficheiros de Configuração:**
+- Credenciais: `azure/config/`
+- Pipelines: `azure/pipelines/`
+- Modelos: `azure/models/`
+
+### Como Usar
+
+```python
+# Exemplo: Autenticação Azure
+from azure.identity import DefaultAzureCredential
+from azure.ai.ml import MLClient
+
+credential = DefaultAzureCredential()
+ml_client = MLClient(credential, subscription_id, resource_group, workspace_name)
+```
+
+---
+
+## 📝 Análises Incluídas
+
+### 📊 Exploratory Data Analysis (EDA)
+- Distribuições univariadas
+- Correlações entre variáveis
+- Detecção de outliers (IQR, Z-score)
+- Análise de balanceamento de classes
+- Visualizações (histogramas, scatter plots, box plots)
+
+### 🧹 Data Cleaning
+- Imputação de missing values
+- Tratamento de outliers
+- Normalização (Min-Max, Z-score)
+- Encoding de variáveis categóricas
+- Feature scaling
+
+### 📈 Feature Engineering
+- Seleção de features (correlação, importância)
+- Criação de novas features
+- Redução dimensional (PCA)
+
+### 🎯 Model Evaluation
+- Matriz de confusão
+- Curvas ROC-AUC
+- Learning curves
+- Hyperparameter tuning
+
+---
+
+## 📚 Documentação Complementar
+
+### 📄 Relatório Académico
+**`Relatório.docx`** contém:
+- Contexto e motivação do projeto
+- Metodologia detalhada
+- Análise de resultados
+- Conclusões e trabalho futuro
+- Referências bibliográficas
+
+### 📖 Guias Externos Úteis
+
+| Recurso | URL | Tópico |
+|---------|-----|--------|
+| Pandas Docs | [pandas.pydata.org](https://pandas.pydata.org) | Manipulação de dados |
+| Scikit-learn | [scikit-learn.org](https://scikit-learn.org) | Machine Learning |
+| UCI ML Repository | [archive.ics.uci.edu](https://archive.ics.uci.edu) | Datasets públicos |
+| Azure ML | [azure.microsoft.com/ml](https://azure.microsoft.com/en-us/services/machine-learning/) | Cloud ML |
+
+---
+
+## 🚀 Quick Start (5 Minutos)
+
+```bash
+# 1. Clone
+git clone https://github.com/anapatriciagil74-arch/projeto-estagio.git && cd projeto-estagio
+
+# 2. Virtual Environment
+python -m venv venv && source venv/bin/activate
+
+# 3. Dependências
+pip install -r requirements.txt
+
+# 4. Jupyter
+jupyter notebook
+
+# 5. Abra Untitled.ipynb e execute
+# Kernel → Restart & Run All
+```
+
+**Output esperado:**
+- ✅ `adults_data.csv` - Dataset processado
+- ✅ `data_clean_final.csv` - Dataset final
+- ✅ Gráficos de EDA
+- ✅ Métricas de modelos
+
+---
+
+## 💡 Exemplos de Uso
+
+### Carregar Dataset Processado
 
 ```python
 import pandas as pd
 
-# Carregar dataset pronto para ML
-df = pd.read_csv('data_clean_final.csv')
+df = pd.read_csv('Datasets/data_clean_final.csv')
+print(df.head())
+print(df.info())
+```
 
-# Separar features e target
+### Treinar Modelo Simples
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
+
+# Preparação
 X = df.drop('income', axis=1)
 y = df['income']
 
-# Usar em modelo de ML
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier()
-model.fit(X, y)
+# Encode categóricos se necessário
+X_encoded = pd.get_dummies(X, drop_first=True)
+
+# Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X_encoded, y, test_size=0.2, random_state=42
+)
+
+# Modelo
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Avaliação
+y_pred = model.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+print(classification_report(y_test, y_pred))
 ```
 
 ---
 
-## ☁️ Integração Azure
+## ✅ Checklist de Desenvolvimento
 
-O projeto inclui configuração para implantação em Microsoft Azure:
-
-**Recursos Utilizados**:
-- Azure Storage (armazenamento de dados)
-- Azure Machine Learning (treino de modelos)
-- Vertex AI (AutoML - quando aplicável)
-
-**Ficheiros de Configuração**: Ver pasta `azure/`
-
----
-
-## 📝 Documentação
-
-### Relatório Académico
-📄 **`Modelo 2025_26 Relatório de Estágio - Lic. em Engª Informática 2.docx`**
-
-Contém:
-- Análise completa do projeto
-- Metodologia e técnicas aplicadas
-- Resultados e conclusões
-- Referências bibliográficas
-
----
-
-## 📚 Análises Incluídas
-
-### 📊 Exploratory Data Analysis (EDA)
-- Distribuições de variáveis
-- Correlações entre atributos
-- Detecção de outliers
-- Análise de balanceamento de classes
-
-### 🧹 Data Cleaning
-- Imputação de valores faltantes
-- Normalização e standardização
-- Tratamento de valores categóricos
-- Feature engineering
-
-### 🤖 AutoML Testing
-- Comparação de algoritmos
-- Validação cruzada
-- Otimização de hiperparâmetros
-- Avaliação de modelos
-
----
-
-## 📋 Checklist de Desenvolvimento
-
-- ✅ Carregamento e exploração de datasets
-- ✅ Limpeza e preprocessamento de dados
+- ✅ Carregamento de datasets múltiplos
+- ✅ Exploração e análise inicial (EDA)
+- ✅ Limpeza e preprocessamento
 - ✅ Tratamento de valores ausentes
-- ✅ Normalização de estrutura
+- ✅ Normalização de estrutura de dados
 - ✅ Validação de qualidade
-- ✅ Exportação para formatos standard
-- ✅ Integração Azure
-- ✅ Documentação e relatório
-- ⏳ Implantação em produção (Em desenvolvimento)
+- ✅ Exportação em formatos standard
+- ✅ Integração com Azure
+- ✅ Documentação completa
+- ⏳ Implantação em produção (futuro)
 
 ---
 
-## 🔗 Recursos Externos
+## 🔧 Troubleshooting
 
-| Recurso | Link |
-|---------|------|
-| UCI ML Repository | https://archive.ics.uci.edu |
-| Scikit-learn | https://scikit-learn.org |
-| Pandas Documentation | https://pandas.pydata.org |
-| Azure ML | https://azure.microsoft.com/services/machine-learning |
+### Erro: `ModuleNotFoundError: No module named 'pandas'`
+```bash
+pip install pandas
+```
+
+### Erro: `FileNotFoundError: Datasets/adults.csv`
+```bash
+# Certifique-se que está no diretório raiz do projeto
+# e que os ficheiros de dados existem
+ls Datasets/
+```
+
+### Erro: Jupyter não abre
+```bash
+# Reinstale jupyter
+pip uninstall jupyter -y && pip install jupyter
+jupyter notebook
+```
+
+### Performance Lenta
+- Use `pandas` com `dtype_backend='numpy_nullable'`
+- Considere amostras menores para testes rápidos
+- Implemente cache de processamento
 
 ---
 
-## 👤 Autor & Contacto
+## 📋 Informações Técnicas
 
-**Ana Patrícia Gil**
-- 🔗 GitHub: [@anapatriciagil74-arch](https://github.com/anapatriciagil74-arch)
-- 📧 Email: Disponível no perfil GitHub
-- 🏫 Instituição: Licenciatura em IA e Ciências de Dados
+### Ambiente Recomendado
+
+| Componente | Especificação |
+|-----------|---------------|
+| **Python** | 3.13.9+ |
+| **RAM** | 8GB+ (mínimo 4GB) |
+| **Disco** | 2GB+ |
+| **SO** | Windows 10+, macOS 10.14+, Linux (qualquer) |
+
+### Stack de Tecnologias
+
+| Tecnologia | Versão | Uso |
+|-----------|--------|-----|
+| Python | 3.13.9 | Linguagem principal |
+| Jupyter | Latest | Análise interativa |
+| Pandas | Latest | Manipulação de dados |
+| NumPy | Latest | Computação numérica |
+| scikit-learn | Latest | Machine Learning |
+| Matplotlib/Seaborn | Latest | Visualizações |
+| Azure SDK | Latest | Integração cloud |
 
 ---
 
-## 📄 Licença
+## 📞 Contacto & Suporte
 
-Este projeto é desenvolvido como trabalho académico de estágio.  
-Uso apenas para fins educacionais e académicos.
+**Autor:** Ana Patrícia Gil
+
+| Canal | Link |
+|-------|------|
+| 🔗 GitHub | [@anapatriciagil74-arch](https://github.com/anapatriciagil74-arch) |
+| 📧 Email | Disponível no perfil GitHub |
+| 🏫 Instituição | Licenciatura em IA e Ciências de Dados |
 
 ---
 
-## 🗂️ Versionamento
+## 📜 Licença
 
-| Versão | Data | Alterações |
-|--------|------|-----------|
-| 1.0 | 14/05/2026 | Release inicial do projeto |
-| 1.1 | 14/05/2026 | README refactorizado e expandido |
+Este projeto é desenvolvido como **trabalho académico de estágio**.
+
+⚠️ **Uso restrito a fins educacionais e académicos**. A reutilização ou publicação requer autorização do autor.
 
 ---
 
 ## 📝 Notas Importantes
 
-> ⚠️ **Dados Sensíveis**: O dataset Adults contém dados demográficos; usar com cuidado para fins académicos.
+> ⚠️ **Dados Sensíveis**: O dataset Adults contém dados demográficos reais. Usar com responsabilidade e conformidade GDPR.
 
-> 💡 **Compatibilidade**: Estrutura de dados optimizada para Google Vertex AI e Azure ML.
+> 💡 **Reproducibilidade**: Todos os scripts usam `random_state` fixo (42) para garantir reproducibilidade dos resultados.
 
-> 🔄 **Replicabilidade**: Todos os scripts são determinísticos com seeds fixas para reproduzibilidade.
+> 🔄 **Versionamento**: Utilize Git para controlo de versões. Não commit de datasets brutos muito grandes.
+
+> 📊 **Performance**: Para datasets > 100MB, considere usar `Dask` ou `Polars` ao invés de Pandas.
 
 ---
 
-**Última Atualização**: 14 de maio de 2026  
-**Status**: ✅ Em Desenvolvimento Activo
+## 🗓️ Histórico de Versões
+
+| Versão | Data | Alterações |
+|--------|------|-----------|
+| 1.0 | 14/05/2026 | Release inicial |
+| 1.1 | 14/05/2026 | README expandido e refatorizado |
+| 1.2 | 15/05/2026 | Melhorias de estrutura e documentação |
+
+---
+
+<div align="center">
+
+**Desenvolvido com ❤️ como projeto de estágio**
+
+*Última atualização: 15 de maio de 2026*
+
+[⬆ Voltar ao Topo](#-projeto-de-estágio---automl--data-processing)
+
+</div>
