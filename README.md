@@ -45,7 +45,7 @@ Este projeto consiste numa avaliação prática e comparativa de ferramentas e p
 ---
 
 ## Estrutura do Repositório
-.
+
 ├── .ipynb_checkpoints
 ├── AzureML AutoML/
 │   ├── AzureOutputsAndLogs.zip
