@@ -45,7 +45,8 @@ Este projeto consiste numa avaliação prática e comparativa de ferramentas e p
 ---
 
 ## Estrutura do Repositório
-├── .ipynb_checkpoinst
+.
+├── .ipynb_checkpoints
 ├── AzureML AutoML/
 │   ├── AzureOutputsAndLogs.zip
 │   ├── test.txt
@@ -72,7 +73,7 @@ Este projeto consiste numa avaliação prática e comparativa de ferramentas e p
 │   ├── SageMakerAutopilotCandidateDefinitionNotebook.ipynb
 │   ├── data.csv
 │   └── test.txt
-└── README.md
+├── README.md
 └── 58385.pdf
 ---
 
