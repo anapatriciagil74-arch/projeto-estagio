@@ -19,7 +19,7 @@ Este projeto consiste numa avaliação prática e comparativa de ferramentas e p
 
 ### Open-Source
 | Ferramenta | Paradigma | 
-|---|---|---|
+|---|---|
 | TPOT | Programação genética |
 | AutoGluon | Ensemble multi-nível | 
 | H2O AutoML | Stacking + interpretabilidade | 
